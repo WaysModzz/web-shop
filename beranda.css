@@ -47,47 +47,25 @@ header{
   filter:drop-shadow(0 0 10px rgba(79,124,255,.6));
 }
 
-nav{
-  display:flex;
-  gap:20px;
+
+nav {
+  display: flex;
+  gap: 20px;
 }
 
-nav a{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  cursor:pointer;
-  pointer-events:auto;
-  position:relative;
+nav a {
+  text-decoration: none;
+  color: var(--neon-soft);
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 20px;
+  transition: 0.3s;
 }
 
-nav a:hover{
-  background:var(--neon);
-  color:white;
-  box-shadow:0 0 20px var(--neon);
-}
-
-nav a:nth-child(1)::before{
-  content:"\f015"; /* home */
-}
-
-nav a:nth-child(2)::before{
-  content:"\f290"; /* shopping bag */
-}
-
-nav a:nth-child(3)::before{
-  content:"\f05a"; /* info */
-}
-
-nav a:nth-child(4)::before{
-  content:"\f095"; /* phone */
-}
-
-nav a::before{
-  font-family:"Font Awesome 6 Free";
-  font-weight:900;
-  color:var(--neon);
-  text-shadow:0 0 10px var(--neon);
+nav a:hover {
+  background: var(--neon);
+  color: #ffffff;
+  box-shadow: 0 0 18px var(--neon);
 }
 
 /* ================= HAMBURGER ================= */
@@ -272,5 +250,6 @@ footer{
   .hamburger{display:flex}
   .hero h1{font-size:2.2rem}
 }
+
 
 
