@@ -18,28 +18,15 @@
 }
 
 /* ================= BODY ================= */
-body{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  background:
-    radial-gradient(circle at top,#0b1a40 0%,transparent 45%),
-    var(--bg-main);
-  color:var(--text-main);
-  overflow-x:hidden;
+body {
+  position: relative;
 }
 
 /* ================= HEADER ================= */
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  padding:16px 30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(5,7,15,.9);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border-glow);
-  box-shadow:0 0 25px rgba(79,124,255,.2);
+header {
+  position: sticky;
+  top: 0;
+  z-index: 99999; /* PALING TINGGI */
 }
 
 .logo img{
@@ -48,9 +35,11 @@ header{
 }
 
 
-nav {
-  display: flex;
-  gap: 20px;
+nav,
+nav a {
+  position: relative;
+  z-index: 100000;
+  pointer-events: auto;
 }
 
 nav a {
@@ -112,10 +101,10 @@ nav a:hover {
 
 
 /* ================= HERO ================= */
-.hero{
-  text-align:center;
-  padding:100px 20px;
-  background:linear-gradient(180deg,#0b1020,transparent);
+.hero,
+.hero::before,
+.hero::after {
+  pointer-events: none;
 }
 
 .hero h1{
@@ -250,6 +239,7 @@ footer{
   .hamburger{display:flex}
   .hero h1{font-size:2.2rem}
 }
+
 
 
 
