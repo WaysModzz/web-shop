@@ -18,43 +18,63 @@
 }
 
 /* ================= BODY ================= */
-body {
-  position: relative;
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:
+    radial-gradient(circle at top,#0b1a40 0%,transparent 45%),
+    var(--bg-main);
+  color:var(--text-main);
+  overflow-x:hidden;
 }
 
-/* ================= HEADER ================= */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 99999; /* PALING TINGGI */
+/* ================= HEADER (AMAN DIKLIK) ================= */
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  padding:16px 30px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  background:rgba(5,7,15,.9);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border-glow);
 }
 
+/* ================= LOGO ================= */
 .logo img{
   height:60px;
   filter:drop-shadow(0 0 10px rgba(79,124,255,.6));
 }
 
-
-nav,
-nav a {
-  position: relative;
-  z-index: 100000;
-  pointer-events: auto;
+/* ================= NAV (FIX KLIK) ================= */
+nav{
+  display:flex;
+  gap:20px;
 }
 
-nav a {
-  text-decoration: none;
-  color: var(--neon-soft);
-  font-weight: 600;
-  padding: 8px 18px;
-  border-radius: 20px;
-  transition: 0.3s;
+nav a{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  text-decoration:none;
+  color:var(--neon-soft);
+  font-weight:600;
+
+  padding:8px 16px;
+  border-radius:20px;
+
+  transition:background .3s, box-shadow .3s, color .3s;
+  cursor:pointer;
 }
 
-nav a:hover {
-  background: var(--neon);
-  color: #ffffff;
-  box-shadow: 0 0 18px var(--neon);
+nav a:hover{
+  background:var(--neon);
+  color:#ffffff;
+  box-shadow:0 0 16px var(--neon);
 }
 
 /* ================= HAMBURGER ================= */
@@ -78,10 +98,12 @@ nav a:hover {
   position:absolute;
   top:70px;
   right:20px;
+
   background:rgba(10,14,30,.95);
   backdrop-filter:blur(10px);
   padding:18px;
   border-radius:16px;
+
   box-shadow:0 0 30px rgba(79,124,255,.4);
 }
 
@@ -89,6 +111,7 @@ nav a:hover {
   display:block;
   margin:8px 0;
   padding:10px;
+
   color:var(--neon-soft);
   text-align:center;
   border-radius:10px;
@@ -99,12 +122,11 @@ nav a:hover {
   color:white;
 }
 
-
 /* ================= HERO ================= */
-.hero,
-.hero::before,
-.hero::after {
-  pointer-events: none;
+.hero{
+  text-align:center;
+  padding:100px 20px;
+  background:linear-gradient(180deg,#0b1020,transparent);
 }
 
 .hero h1{
@@ -129,12 +151,15 @@ nav a:hover {
   margin-top:30px;
   display:inline-block;
   padding:14px 34px;
+
   border-radius:40px;
   background:linear-gradient(135deg,var(--neon),#2f5bff);
   color:white;
   font-weight:700;
   text-decoration:none;
+
   box-shadow:0 0 30px rgba(79,124,255,.8);
+
   opacity:0;
   animation:fadeUp 1s ease forwards;
   animation-delay:.7s;
@@ -157,8 +182,10 @@ nav a:hover {
   border-radius:20px;
   padding:25px;
   text-align:center;
+
   border:1px solid var(--border-glow);
   box-shadow:0 0 25px rgba(79,124,255,.25);
+
   transition:.4s;
 }
 
@@ -214,11 +241,13 @@ footer{
   position:fixed;
   bottom:20px;
   right:20px;
+
   padding:15px;
   border-radius:50%;
   background:var(--neon);
   color:white;
   font-size:24px;
+
   box-shadow:0 0 30px rgba(79,124,255,.8);
 }
 
@@ -234,12 +263,8 @@ footer{
 }
 
 /* ================= RESPONSIVE ================= */
-@media(max-width:768px){
+@media (max-width:768px){
   nav{display:none}
   .hamburger{display:flex}
   .hero h1{font-size:2.2rem}
 }
-
-
-
-
