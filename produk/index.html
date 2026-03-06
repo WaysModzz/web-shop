@@ -23,8 +23,85 @@
 
 <link rel="icon" href="/favicon.png" type="image/png">
 
-<!-- CSS UTAMA -->
 <link rel="stylesheet" href="/beranda.css">
+
+<style>
+
+/* tambahan estetika */
+
+.hero h1::before{
+content:"\f07a";
+font-family:"Font Awesome 6 Free";
+font-weight:900;
+margin-right:10px;
+color:#6366f1;
+}
+
+.filter-buttons button{
+padding:8px 16px;
+border:none;
+border-radius:20px;
+background:#f1f5f9;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.filter-buttons button.active{
+background:#6366f1;
+color:white;
+}
+
+.filter-buttons button:hover{
+background:#6366f1;
+color:white;
+}
+
+.product-card{
+position:relative;
+border-radius:14px;
+overflow:hidden;
+transition:0.3s;
+}
+
+.product-card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+.product-card p{
+color:#6366f1;
+font-weight:700;
+}
+
+.share-btn{
+position:absolute;
+top:10px;
+right:10px;
+background:white;
+border-radius:50%;
+width:35px;
+height:35px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+transition:0.2s;
+}
+
+.share-btn:hover{
+background:#6366f1;
+color:white;
+}
+
+.btn-primary{
+display:inline-flex;
+align-items:center;
+gap:6px;
+}
+
+</style>
 
 </head>
 
@@ -39,10 +116,10 @@
 </div>
 
 <nav>
-<a href="/">Beranda</a>
-<a href="/produk">Produk</a>
-<a href="/tentang">Tentang</a>
-<a href="/kontak">Kontak</a>
+<a href="/"><i class="fas fa-home"></i> Beranda</a>
+<a href="/produk"><i class="fas fa-bag-shopping"></i> Produk</a>
+<a href="/tentang"><i class="fas fa-circle-info"></i> Tentang</a>
+<a href="/kontak"><i class="fas fa-envelope"></i> Kontak</a>
 <button onclick="toggleDarkMode()" class="toggle-darkmode">🌓</button>
 </nav>
 
@@ -53,24 +130,32 @@
 </div>
 
 <div class="mobile-menu" id="mobileMenu">
-<a href="/">Beranda</a>
-<a href="/produk">Produk</a>
-<a href="/tentang">Tentang</a>
-<a href="/kontak">Kontak</a>
+<a href="/"><i class="fas fa-home"></i> Beranda</a>
+<a href="/produk"><i class="fas fa-bag-shopping"></i> Produk</a>
+<a href="/tentang"><i class="fas fa-circle-info"></i> Tentang</a>
+<a href="/kontak"><i class="fas fa-envelope"></i> Kontak</a>
 </div>
 
 </header>
 
 <section class="hero">
 <h1>Katalog Produk</h1>
-<h1><p>Outfit & Parfume Berkualitas</p></h1>
+<p>Outfit & Parfume Berkualitas</p>
 
 <input type="text" id="searchInput" placeholder="Cari produk...">
 
 <div class="filter-buttons">
-<button onclick="filterProduct('all')" class="active">Semua</button>
-<button onclick="filterProduct('outfit')">Outfit</button>
-<button onclick="filterProduct('parfume')">Parfume</button>
+<button onclick="filterProduct('all')" class="active">
+<i class="fas fa-border-all"></i> Semua
+</button>
+
+<button onclick="filterProduct('outfit')">
+<i class="fas fa-shirt"></i> Outfit
+</button>
+
+<button onclick="filterProduct('parfume')">
+<i class="fas fa-spray-can"></i> Parfume
+</button>
 </div>
 
 </section>
@@ -78,38 +163,93 @@
 <section class="products">
 
 <div class="product-card" data-category="outfit">
+
+<div class="share-btn" onclick="shareProduct(this)">
+<i class="fas fa-share-alt"></i>
+</div>
+
 <img src="https://i.postimg.cc/25btpm3Z/jaket-vintage.webp" alt="Jaket Vintage Second">
-<h3>Jaket Vintage</h3>
+
+<h3><i class="fas fa-shirt"></i> Jaket Vintage</h3>
+
 <p>Rp 120.000</p>
-<a class="btn-primary" href="#">Belanja</a>
+
+<a class="btn-primary" href="#">
+<i class="fas fa-cart-shopping"></i> Belanja
+</a>
+
 </div>
 
 <div class="product-card" data-category="outfit">
+
+<div class="share-btn" onclick="shareProduct(this)">
+<i class="fas fa-share-alt"></i>
+</div>
+
 <img src="https://i.postimg.cc/ZnVHBD0M/celana-retro.webp" alt="Celana Retro Second">
-<h3>Celana Retro</h3>
+
+<h3><i class="fas fa-shirt"></i> Celana Retro</h3>
+
 <p>Rp 90.000</p>
-<a class="btn-primary" href="#">Belanja</a>
+
+<a class="btn-primary" href="#">
+<i class="fas fa-cart-shopping"></i> Belanja
+</a>
+
 </div>
 
 <div class="product-card" data-category="outfit">
+
+<div class="share-btn" onclick="shareProduct(this)">
+<i class="fas fa-share-alt"></i>
+</div>
+
 <img src="https://i.postimg.cc/RV0NSgtp/hoodie-streatwear.webp" alt="Hoodie Streetwear Second">
-<h3>Hoodie Streetwear</h3>
+
+<h3><i class="fas fa-shirt"></i> Hoodie Streetwear</h3>
+
 <p>Rp 130.000</p>
-<a class="btn-primary" href="#">Belanja</a>
+
+<a class="btn-primary" href="#">
+<i class="fas fa-cart-shopping"></i> Belanja
+</a>
+
 </div>
 
 <div class="product-card" data-category="parfume">
+
+<div class="share-btn" onclick="shareProduct(this)">
+<i class="fas fa-share-alt"></i>
+</div>
+
 <img src="https://i.postimg.cc/6Q0hTq6K/parfume1.webp" alt="Parfume Pria Elegan">
-<h3>Parfume Pria Elegan</h3>
+
+<h3><i class="fas fa-spray-can"></i> Parfume Pria Elegan</h3>
+
 <p>Rp 150.000</p>
-<a class="btn-primary" href="#">Belanja</a>
+
+<a class="btn-primary" href="#">
+<i class="fas fa-cart-shopping"></i> Belanja
+</a>
+
 </div>
 
 <div class="product-card" data-category="parfume">
+
+<div class="share-btn" onclick="shareProduct(this)">
+<i class="fas fa-share-alt"></i>
+</div>
+
 <img src="https://i.postimg.cc/DyYgYVfW/parfume2.webp" alt="Parfume Fresh Daily">
-<h3>Parfume Fresh Daily</h3>
+
+<h3><i class="fas fa-spray-can"></i> Parfume Fresh Daily</h3>
+
 <p>Rp 135.000</p>
-<a class="btn-primary" href="#">Belanja</a>
+
+<a class="btn-primary" href="#">
+<i class="fas fa-cart-shopping"></i> Belanja
+</a>
+
 </div>
 
 </section>
@@ -166,7 +306,32 @@ card.style.display=title.includes(keyword)?'block':'none';
 
 });
 
+/* SHARE PRODUK */
+
+function shareProduct(btn){
+
+const card=btn.closest('.product-card');
+
+const title=card.querySelector('h3').innerText;
+
+const url=window.location.href;
+
+const text=`Lihat produk ${title} di khusni Chlothing ${url}`;
+
+if(navigator.share){
+navigator.share({
+title:title,
+text:text,
+url:url
+});
+}else{
+navigator.clipboard.writeText(url);
+alert("Link produk disalin!");
+}
+
+}
+
 </script>
 
 </body>
-</html>
+  </html>
